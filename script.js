@@ -234,7 +234,7 @@ function drawStackedBarChart(svg, data) {
         .domain([0, d3.max(data, d => d.PHEV + d.BEV)]);
 
     const color = d3.scaleOrdinal()
-        .range(["#6b486b","#ff8c00"]);
+        .range(["#ff8c00", "#6b486b"]);
 
     const tooltip = d3.select("body").append("div")
         .attr("class", "tooltip")

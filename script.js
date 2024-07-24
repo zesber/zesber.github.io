@@ -339,8 +339,10 @@ function drawStackedBarChart(svg, data) {
 
     checkboxContainer.append("label")
         .attr("for", "checkbox-PHEV")
-        .text("PHEV");
+        .text("PHEV")
+        .attr("color", "#ff8c00");
 
+        
     checkboxContainer.append("br");
 
     checkboxContainer.append("input")
@@ -351,6 +353,41 @@ function drawStackedBarChart(svg, data) {
 
     checkboxContainer.append("label")
         .attr("for", "checkbox-BEV")
+        .text("BEV")
+        .attr("color", "red");
+
+        const legend = svg.append("g")
+        .attr("class", "legend")
+        .attr("transform", `translate(${width - 100},${margin.top})`);
+
+    legend.append("rect")
+        .attr("x", -550)
+        .attr("y", 0)
+        .attr("width", 10)
+        .attr("height", 10)
+        .attr("fill", "#6b486b");
+
+    legend.append("text")
+        .attr("x", -530)
+        .attr("y", 10)
+        .attr("dy", "-0.2em")
+        .style("font-size", "12px")
+        .style("fill", "#6b486b")
+        .text("PHEV");
+
+    legend.append("rect")
+        .attr("x", -550)
+        .attr("y", 20)
+        .attr("width", 10)
+        .attr("height", 10)
+        .attr("fill", "#ff8c00");
+
+    legend.append("text")
+        .attr("x", -530)
+        .attr("y", 30)
+        .attr("dy", "-0.2em")
+        .style("font-size", "12px")
+        .style("fill", "#ff8c00")
         .text("BEV");
 
     function updateChart() {
@@ -384,6 +421,8 @@ function drawStackedBarChart(svg, data) {
 
     updateChart(); 
 }
+
+
 
 function drawCountyMap(svg, data) {
     const width = +svg.attr("width");
